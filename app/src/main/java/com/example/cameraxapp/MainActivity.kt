@@ -8,6 +8,7 @@ import android.graphics.*
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.util.Size
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -114,6 +115,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
             val imageAnalyzer = ImageAnalysis.Builder()
+                .setTargetResolution(Size(1080, 1920))
                 .build()
                 .also {
                     viewFinder.doOnPreDraw { view ->
@@ -215,7 +217,7 @@ class MainActivity : AppCompatActivity() {
                 )
             )
                 .detectionResultList
-                .filter { it.categoryAsString == "bus" && it.scoreAsFloat > 0.6 }
+                .filter { it.categoryAsString == "bus" && it.scoreAsFloat > 0.3 }
 
             listener(resultToDisplay)
 
