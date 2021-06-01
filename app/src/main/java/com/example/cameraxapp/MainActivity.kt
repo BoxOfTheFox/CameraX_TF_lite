@@ -224,13 +224,6 @@ class MainActivity : AppCompatActivity() {
         .toMutableList()
 
       if (resultToDisplay.isNotEmpty()) {
-        for (result in resultToDisplay) {
-          Log.e(
-            TAG,
-            result.locationAsRectF.toShortString() + " ${result.locationAsRectF.width() * result.locationAsRectF.height()}"
-          )
-        }
-
         val maxRect = resultToDisplay.removeFirst()
 
         resultToDisplay.forEach {
